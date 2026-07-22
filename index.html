@@ -155,7 +155,7 @@ main{padding-top:42px}.page{min-height:60vh}.page.active{animation:pageIn .38s c
 <div class="actions"><button class="icon" id="theme" title="מצב לילה">🌙</button><button class="icon" id="printBtn" title="הדפסה">🖨️</button></div><div class="hero-kicker">Version 5.3 · Premium Travel Companion · יולי 2026</div>
 <h1>Slovakia Explorer</h1>
 <p>ספר מסע דיגיטלי למשפחה — עם דשבורד יומי, החלטות לפי מזג האוויר, מדריך צילום, אוכל צמחוני, צ׳קליסטים חכמים וטיפים קטנים שעושים את היום.</p>
-<div class="hero-stats"><div class="hero-stat"><b>5.3 Premium</b><span>דשבורד, Photo Mode ו־Smart Weather</span></div><div class="hero-stat"><b>6 מפות שימושיות</b><span>הגעה, ימי הטטרה והדרך מערבה</span></div><div class="hero-stat"><b>2 ימים מלאים</b><span>לו״ז מומלץ, קיצורים ו־Plan B</span></div><div class="hero-stat"><b>Plan B חכם</b><span>לפי ראות, רוח, גשם ואנרגיה</span></div><div class="hero-stat"><b>Mobile first</b><span>נבנה לפתיחה מהירה בשטח</span></div></div><div class="hero-cta"><button data-jump="maps" type="button">פתיחת המפה האינטראקטיבית</button><button class="secondary" data-jump="twodays" type="button">שני הימים בטטרה</button></div><svg class="mountains" preserveaspectratio="none" viewbox="0 0 1440 70"><path d="M0,70 L0,45 L150,18 L280,48 L430,9 L590,52 L760,24 L930,54 L1100,17 L1260,49 L1440,28 L1440,70Z" fill="var(--paper)" opacity=".65"></path><path d="M0,70 L0,56 L180,36 L340,60 L510,34 L680,61 L850,38 L1040,61 L1210,39 L1440,57 L1440,70Z" fill="var(--paper)"></path></svg>
+<div class="hero-stats"><div class="hero-stat"><b>5.3 Premium</b><span>דשבורד, Photo Mode ו־Smart Weather</span></div><div class="hero-stat"><b>6 מפות שימושיות</b><span>הגעה, ימי הטטרה והדרך מערבה</span></div><div class="hero-stat"><b>2 ימים מלאים</b><span>לו״ז מומלץ, קיצורים ו־Plan B</span></div><div class="hero-stat"><b>Plan B חכם</b><span>לפי ראות, רוח, גשם ואנרגיה</span></div><div class="hero-stat"><b>Mobile first</b><span>נבנה לפתיחה מהירה בשטח</span></div></div><div class="hero-cta"><button data-jump="archive" type="button">פתיחת המפה האינטראקטיבית</button><button class="secondary" data-jump="archive" type="button">שני הימים בטטרה</button></div><svg class="mountains" preserveaspectratio="none" viewbox="0 0 1440 70"><path d="M0,70 L0,45 L150,18 L280,48 L430,9 L590,52 L760,24 L930,54 L1100,17 L1260,49 L1440,28 L1440,70Z" fill="var(--paper)" opacity=".65"></path><path d="M0,70 L0,56 L180,36 L340,60 L510,34 L680,61 L850,38 L1040,61 L1210,39 L1440,57 L1440,70Z" fill="var(--paper)"></path></svg>
 </header>
 <nav id="tabs"><button data-page="home">בית</button><button data-page="destinations">יעדים</button><button data-page="routes">מסלולים</button><button data-page="attractions-guide">אטרקציות</button><button data-page="restaurants">מסעדות</button><button data-page="cafes">בתי קפה</button><button data-page="photos">צילום</button><button data-page="rain-guide">יום גשום</button><button data-page="practical">שימושי</button><button data-page="fullguide">המדריך המלא</button></nav>
 <main><section class="page" id="home" style="--accent:var(--forest)"><h2>המדריך המשפחתי להרי הטטרה</h2><p class="lead">מדריך לבחירה חכמה לפי מזג האוויר, האנרגיה וסוג החוויה — לא לוח זמנים קשיח.</p>
@@ -1292,7 +1292,8 @@ main{padding-top:42px}.page{min-height:60vh}.page.active{animation:pageIn .38s c
 </section></div>
 </section></main>
 <footer>מדריך הטטרה המשפחתי · קובץ HTML אחד · המסלולים היומיים נמצאים תחת מסלולים</footer>
-<script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+<script crossorigin="" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
 // Version 5.3 premium interactions
 const premiumWeatherCopy={
  sun:'<strong>יום בהיר:</strong> מתחילים במסלול הגבוה ביותר בתוכנית. מזמינים רכבל מוקדם, מצלמים לפני שהעננים עולים ומשאירים מים או אדרנלין לשעות אחר הצהריים.',
@@ -1314,7 +1315,7 @@ const theme=document.getElementById('theme');function apply(t){document.document
 document.querySelectorAll('.search').forEach(input=>input.addEventListener('input',()=>{const q=input.value.trim().toLowerCase();const root=document.getElementById(input.dataset.searchTarget);root.querySelectorAll('.searchable').forEach(x=>x.classList.toggle('hide',q&&!x.textContent.toLowerCase().includes(q)))}));
 document.querySelectorAll('.checklist input').forEach((x,i)=>{const key='tatra_pack_'+i;x.checked=localStorage.getItem(key)==='1';x.onchange=()=>localStorage.setItem(key,x.checked?'1':'0')});
 
-const toTop=document.getElementById('toTop');window.addEventListener('scroll',()=>toTop.classList.toggle('show',scrollY>450));toTop.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+window.addEventListener('DOMContentLoaded',()=>{const toTop=document.getElementById('toTop');if(toTop){window.addEventListener('scroll',()=>toTop.classList.toggle('show',scrollY>450));toTop.onclick=()=>scrollTo({top:0,behavior:'smooth'});}});
 
 
 const westRoutes={
@@ -1356,7 +1357,7 @@ function initTrailMaps(){
  setTimeout(()=>Object.values(trailMaps).forEach(m=>m.invalidateSize()),80);
 }
 document.querySelectorAll('[data-scroll-trail]').forEach(btn=>btn.addEventListener('click',()=>document.getElementById(btn.dataset.scrollTrail)?.scrollIntoView({behavior:'smooth',block:'start'})));
-const originalShow=show;show=function(id){originalShow(id);if(id==='trails')setTimeout(initTrailMaps,100)};
+const originalShow=show;show=function(id){originalShow(id);if(id==='trails'||id==='archive')setTimeout(initTrailMaps,100)};
 if(location.hash==='#trails')setTimeout(initTrailMaps,150);
 
 
@@ -1376,16 +1377,16 @@ document.querySelectorAll('#attractionChoices button').forEach(btn=>btn.addEvent
 </script>
 <div aria-hidden="true" class="lightbox" id="lightbox"><figure><button aria-label="סגירת תמונה" class="lightbox-close" type="button">×</button><img alt=""/><figcaption></figcaption></figure></div>
 <div aria-label="ניווט מהיר" class="mobile-dock" id="mobileDock">
-<button class="active" data-page="start" type="button"><span>⌂</span>בית</button>
-<button data-page="maps" type="button"><span>🗺</span>מפה</button>
-<button data-page="twodays" type="button"><span>◫</span>ימים</button>
-<button data-page="trails" type="button"><span>🥾</span>מסלולים</button>
-<button data-page="premium" type="button"><span>✦</span>5.3</button>
+<button class="active" data-page="home" type="button"><span>⌂</span>בית</button>
+<button data-page="destinations" type="button"><span>📍</span>יעדים</button>
+<button data-page="routes" type="button"><span>🥾</span>מסלולים</button>
+<button data-page="restaurants" type="button"><span>🍽️</span>מסעדות</button>
+<button data-page="fullguide" type="button"><span>📖</span>מדריך</button>
 </div>
 <button aria-label="חזרה למעלה" id="toTop" title="חזרה למעלה">↑</button><script>
 (function(){
   const pages=[...document.querySelectorAll('main > .page')];
-  const buttons=[...document.querySelectorAll('#tabs [data-page]')];
+  const buttons=[...document.querySelectorAll('#tabs [data-page], #mobileDock [data-page]')];
   function show(id){
     pages.forEach(p=>p.classList.toggle('active',p.id===id));
     buttons.forEach(b=>b.classList.toggle('active',b.dataset.page===id));
