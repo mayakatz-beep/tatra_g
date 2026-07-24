@@ -1,4 +1,4 @@
-const CACHE='slovakia-explorer-5.4-v4';
+const CACHE='slovakia-explorer-5.4-v5';
 const ASSETS=["./index.html", "./README.txt", "./manifest.webmanifest", "./field-guide.html", "./days/day-1.html", "./days/day-2.html", "./days/day-3.html", "./days/day-4.html", "./attractions/index.html", "./attractions/tatras-tower.html", "./attractions/monster-rollers.html", "./attractions/bachledka.html", "./attractions/aquacity.html", "./attractions/tatrabob.html", "./attractions/compare.html", "./hikes/index.html", "./food/index.html", "./planner/index.html", "./weather/index.html", "./tips/index.html", "./journal/index.html", "./map/index.html", "./field/index.html", "./assets/css/style.css", "./assets/js/app.js", "./assets/icons/icon-192.svg", "./assets/icons/icon-512.svg"];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
